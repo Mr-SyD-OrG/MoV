@@ -13,21 +13,21 @@ HELP_MSG = """
 **Uꜱᴇʀ Cᴏᴍᴍᴀɴᴅꜱ:-**
 /help - __Sʜᴏᴡ ᴛʜɪꜱ ʜᴇʟᴩ ᴍᴇꜱꜱᴀɢᴇ__
 /settings - __Toggle settings of Precise Mode and Button Mode__
-`Precise Mode:` 
-- __If Enabled, bot will match the word & return results with only the exact match__
-- __If Disabled, bot will match the word & return all the results containing the word__    
-`Result Mode:` 
-- __If Button, bot will return results in button format__
-- __If List, bot will return results in list format__
-- __If HyperLink, bot will return results in hyperlink format__"""
+`Pʀᴇᴄɪꜱᴇ Mᴏᴅᴇ:` 
+- __Iꜰ Eɴᴀʙʟᴇᴅ, ʙᴏᴛ ᴡɪʟʟ ᴍᴀᴛᴄʜ ᴛʜᴇ ᴡᴏʀᴅ 'ɴᴅ ʀᴇᴛᴜʀɴ ʀᴇꜱᴜʟᴛ ᴡɪᴛʜ ᴏɴʟʏ ᴛʜᴇ ᴇxᴀᴄᴛ ᴍᴀᴛᴄʜ__
+- __Iꜰ Dɪꜱᴀʙʟᴇᴅ, ʙᴏᴛ ᴡɪʟʟ ᴍᴀᴛᴄʜ ᴛʜᴇ ᴡᴏʀᴅ 'ɴᴅ ʀᴇᴛᴜʀɴ ʀᴇꜱᴜʟᴛ ᴡɪᴛʜ ᴏɴʟʏ ᴛʜᴇ ᴇxᴀᴄᴛ ᴍᴀᴛᴄʜ__
+`Rᴇꜱᴜʟᴛ Mᴏᴅᴇ:` 
+- __Iꜰ Bᴜᴛᴛᴏɴ, ʙᴏᴛ ᴡɪʟʟ ʀᴇᴛᴜʀɴ ʀᴇꜱᴜʟᴛꜱ ɪɴ ʙᴜᴛᴛᴏɴ ꜰᴏʀᴍᴀᴛ__
+- __Iꜰ Lɪꜱᴛ, ʙᴏᴛ ᴡɪʟʟ ʀᴇᴛᴜʀɴ ʀᴇꜱᴜʟᴛꜱ ɪɴ ʟɪꜱᴛ ꜰᴏʀᴍᴀᴛ__
+- __Iꜰ HʏᴩᴇʀLɪɴᴋ, ʙᴏᴛ ᴡɪʟʟ ʀᴇᴛᴜʀɴ ʀᴇꜱᴜʟᴛꜱ ɪɴ ʜʏᴩᴇʀʟɪɴᴋ ꜰᴏʀᴍᴀᴛ__"""
 
 
 START_KB = InlineKeyboardMarkup(
     [
         [
-            InlineKeyboardButton("🆘 Help", callback_data="help_cb"),
+            InlineKeyboardButton("⚝ Hᴇʟᴩ ⚝", callback_data="help_cb"),
             InlineKeyboardButton(
-                "👨‍💻 Source Code", url="https://github.com/EL-Coders/mediafinder"
+                "✧ Sᴜᴩᴩᴏʀᴛ ✧", url="https://t.me/Mod_Moviez_X"
             ),
         ]
     ]
@@ -36,7 +36,7 @@ START_KB = InlineKeyboardMarkup(
 HELP_KB = InlineKeyboardMarkup(
     [
         [
-            InlineKeyboardButton("🔙 Back", callback_data="back_m"),
+            InlineKeyboardButton("☚ Bᴀᴄᴋ", callback_data="back_m"),
         ],
     ]
 )
