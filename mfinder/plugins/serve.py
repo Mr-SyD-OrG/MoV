@@ -63,16 +63,17 @@ async def filter_(bot, message):
     force_sub = await get_channel()
     if force_sub:
         try:
-            link = await create_chat_invite_link(int(force_sub))
-            await message.reply_text(
-                text="**Pʟᴇᴀꜱᴇ ᴊᴏɪɴ ᴏᴜʀ ᴜᴩᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ ᴜꜱɪɴɢ ʙᴏᴛ !** 😶‍🌫️",
-                reply_markup=InlineKeyboardMarkup(
-                    [[InlineKeyboardButton("❃ Jᴏɪɴ ❃", url=link)]]
-                ),
-                parse_mode=ParseMode.MARKDOWN,
-                quote=True,
-            )
-            return
+            if not is_subscribed():
+                link = await create_chat_invite_link(int(force_sub))
+                await message.reply_text(
+                    text="**Pʟᴇᴀꜱᴇ ᴊᴏɪɴ ᴏᴜʀ ᴜᴩᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ ᴜꜱɪɴɢ ʙᴏᴛ !** 😶‍🌫️",
+                    reply_markup=InlineKeyboardMarkup(
+                        [[InlineKeyboardButton("❃ Jᴏɪɴ ❃", url=link)]]
+                    ),
+                    parse_mode=ParseMode.MARKDOWN,
+                    quote=True,
+                )
+                return
         except Exception as e:
             LOGGER.warning(e)
             await message.reply_text(
