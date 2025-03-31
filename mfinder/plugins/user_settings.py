@@ -70,8 +70,8 @@ async def find_search_settings(user_id):
         InlineKeyboardButton("[Precise Mode]:", callback_data="prec md"),
     ]
 
-    on_kb = InlineKeyboardButton("❌ Disabled", callback_data="prec on")
-    off_kb = InlineKeyboardButton("✅ Enabled", callback_data="prec off")
+    on_kb = InlineKeyboardButton("❌ Dɪꜱᴀʙʟᴇᴅ", callback_data="prec on")
+    off_kb = InlineKeyboardButton("✅ Eɴᴀʙʟᴇᴅ", callback_data="prec off")
 
     if search_settings:
         precise_mode = search_settings.precise_mode
@@ -90,9 +90,9 @@ async def find_search_settings(user_id):
         InlineKeyboardButton("[Result Mode]:", callback_data="res mode"),
     ]
 
-    btn_kb = InlineKeyboardButton("📃 List", callback_data="res btnn")
-    link_kb = InlineKeyboardButton("🔳 Button", callback_data="res link")
-    list_kb = InlineKeyboardButton("🔗 HyperLink", callback_data="res list")
+    btn_kb = InlineKeyboardButton("📃 Lɪꜱᴛ", callback_data="res btnn")
+    link_kb = InlineKeyboardButton("🔳 Bᴜᴛᴛᴏɴ", callback_data="res link")
+    list_kb = InlineKeyboardButton("🔗 Hʏᴩᴇʀʟɪɴᴍ", callback_data="res list")
 
     if search_settings:
         button_mode = search_settings.button_mode
