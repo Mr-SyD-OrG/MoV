@@ -43,11 +43,6 @@ async def filter_(bot, message):
     force_sub = await get_channel()
     if force_sub:
         try:
-            user = await bot.get_chat_member(int(force_sub), user_id)
-            if user.status == ChatMemberStatus.BANNED:
-                await message.reply_text("Sorry, you are Banned to use me.", quote=True)
-                return
-        except UserNotParticipant:
             link = await create_chat_invite_link(int(force_sub))
             await message.reply_text(
                 text="**Pʟᴇᴀꜱᴇ ᴊᴏɪɴ ᴏᴜʀ ᴜᴩᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ ᴜꜱɪɴɢ ʙᴏᴛ !** 😶‍🌫️",
