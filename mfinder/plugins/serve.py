@@ -50,9 +50,9 @@ async def filter_(bot, message):
         except UserNotParticipant:
             link = await get_link()
             await message.reply_text(
-                text="**Please join my Update Channel to use this Bot!**",
+                text="**Pʟᴇᴀꜱᴇ ᴊᴏɪɴ ᴏᴜʀ ᴜᴩᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ ᴜꜱɪɴɢ ʙᴏᴛ !** 😶‍🌫️",
                 reply_markup=InlineKeyboardMarkup(
-                    [[InlineKeyboardButton("🤖 Join Channel", url=link)]]
+                    [[InlineKeyboardButton("❃ Jᴏɪɴ ❃", url=link)]]
                 ),
                 parse_mode=ParseMode.MARKDOWN,
                 quote=True,
@@ -219,11 +219,11 @@ async def get_result(search, page_no, user_id, username):
                     btn[1].append(btn_kb)
 
         nxt_kb = InlineKeyboardButton(
-            text="Next >>",
+            text="Nᴇxᴛ >>",
             callback_data=f"nxt_pg {user_id} {page + 1} {search}",
         )
         prev_kb = InlineKeyboardButton(
-            text="<< Previous",
+            text="<< Pʀᴇᴠɪᴏᴜꜱ",
             callback_data=f"prev_pg {user_id} {page - 1} {search}",
         )
 
@@ -257,7 +257,7 @@ async def get_files(bot, query):
     user_id = query.from_user.id
     if isinstance(query, CallbackQuery):
         file_id = query.data.split()[1]
-        await query.answer("Sending file...", cache_time=60)
+        await query.answer("Sᴇɴᴅɪɴɢ ꜰɪʟᴇ...", cache_time=60)
         cbq = True
     elif isinstance(query, Message):
         file_id = query.text.split()[1]
@@ -298,12 +298,12 @@ async def get_files(bot, query):
             minsec = str(delay) + " mins" if delay_dur > 60 else str(delay) + " secs"
             disc = await bot.send_message(
                 user_id,
-                f"Please save the file to your saved messages, it will be deleted in {minsec}",
+                f"⚠️ Pʟᴇᴀꜱᴇ ꜱᴀᴠᴇ ᴛʜᴇ ꜰɪʟᴇ ʙʏ ʀᴇꜰᴏʀᴡᴀʀᴅɪɴɢ ɪᴛ, ᴏʀ ᴛᴏ ꜱᴀᴠᴇᴅ ᴍᴇꜱꜱᴀɢᴇ, ɪᴛ ᴡɪʟʟ ʙᴇ ᴅᴇʟᴇᴛᴇᴅ ɪɴ {minsec} ⚠️",
             )
             await asyncio.sleep(delay_dur)
             await disc.delete()
             await msg.delete()
-            await bot.send_message(user_id, "File has been deleted")
+            await bot.send_message(user_id, "❕ Fɪʟᴇ ʜᴀꜱ ʙᴇᴇɴ ᴅᴇʟᴇᴛᴇᴅ ❕")
 
 
 def get_size(size):
