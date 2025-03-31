@@ -26,7 +26,27 @@ from mfinder.db.ban_sql import is_banned
 from mfinder.db.filters_sql import is_filter
 from mfinder import LOGGER
 
+async def is_subscribed(bot, query):
+    try:
+        user = await join_db().get_user(query.from_user.id)
+        if user and user["user_id"] == query.from_user.id:
+            return True
+        else:
+            try:
+                AUTH_CHANNEL = await get_channel()
+                user_data = await bot.get_chat_member(AUTH_CHANNEL, query.from_user.id)
+            except UserNotParticipant:
+                pass
+            except Exception as e:
+                logger.exception(e)
+            else:
+                if user_data.status != enums.ChatMemberStatus.BANNED:
+                    return True
+    except Exception as e:
+        logger.exception(e)
+        return False
 
+        
 @Client.on_message(
     ~filters.regex(r"^\/") & filters.text & filters.private & filters.incoming
 )
