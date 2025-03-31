@@ -1,17 +1,12 @@
 import motor.motor_asyncio
-from info import AUTH_CHANNEL, OTHER_DB_URI
+
 
 class JoinReqs:
 
     def __init__(self):
-        if OTHER_DB_URI:
-            self.client = motor.motor_asyncio.AsyncIOMotorClient(OTHER_DB_URI)
-            self.db = self.client["JoinReqs"]
-            self.col = self.db[str(AUTH_CHANNEL)]
-        else:
-            self.client = None
-            self.db = None
-            self.col = None
+        self.client = None
+        self.db = None
+        self.col = None
 
     def isActive(self):
         if self.client is not None:
