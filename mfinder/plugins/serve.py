@@ -63,7 +63,7 @@ async def filter_(bot, message):
     force_sub = await get_channel()
     if force_sub:
         try:
-            if not is_subscribed():
+            if not is_subscribed(bot, message):
                 link = await create_chat_invite_link(int(force_sub))
                 await message.reply_text(
                     text="**Pʟᴇᴀꜱᴇ ᴊᴏɪɴ ᴏᴜʀ ᴜᴩᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ ᴜꜱɪɴɢ ʙᴏᴛ !** 😶‍🌫️",
