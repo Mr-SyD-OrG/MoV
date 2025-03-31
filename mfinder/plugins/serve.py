@@ -48,7 +48,7 @@ async def filter_(bot, message):
                 await message.reply_text("Sorry, you are Banned to use me.", quote=True)
                 return
         except UserNotParticipant:
-            link = await get_link()
+            link = await create_chat_invite_link(int(force_sub))
             await message.reply_text(
                 text="**Pʟᴇᴀꜱᴇ ᴊᴏɪɴ ᴏᴜʀ ᴜᴩᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ ᴜꜱɪɴɢ ʙᴏᴛ !** 😶‍🌫️",
                 reply_markup=InlineKeyboardMarkup(
