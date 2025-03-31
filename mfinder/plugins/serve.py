@@ -16,6 +16,8 @@ from mfinder.db.files_sql import (
     get_file_details,
     get_precise_filter_results,
 )
+from mfinder.db.join_req import JoinReqs
+join_db = JoinReqs
 from mfinder.db.settings_sql import (
     get_search_settings,
     get_admin_settings,
