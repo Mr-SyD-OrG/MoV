@@ -5,7 +5,7 @@ RUN apt install git -y
 COPY requirements.txt /requirements.txt
 
 RUN cd /
-RUN pip3 install -U pip && pip3 install -U -r requirements.txt
+RUN pip3 install pip && pip3 install -r requirements.txt
 RUN mkdir /TheMovieProviderBot
 WORKDIR /TheMovieProviderBot
 COPY start.sh /start.sh
