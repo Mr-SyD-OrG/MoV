@@ -1,7 +1,7 @@
 from pyrogram.types import ChatJoinRequest
 from pyrogram import Client, filters, enums
 from mfinder.db.join_req import JoinReqs
-from mfinder.db.settings_sql import get_channel
+from mfinder.db.settings_sql import get_channel, fsub_true
 join_db = JoinReqs
 
 
@@ -9,8 +9,12 @@ join_db = JoinReqs
 async def auto_approve(client, message: ChatJoinRequest):
     AUTH_CHANNEL = await get_channel()
     if message.chat.id == AUTH_CHANNEL:
-      ap_user_id = message.from_user.id
-      first_name = message.from_user.first_name
-      username = message.from_user.username
-      date = message.date
-      await join_db().add_user(user_id=ap_user_id, first_name=first_name, username=username, date=date)
+      syd_user_id = message.from_user.id
+      await fsub_true(syd_user_id)
+
+
+
+
+
+#By @SyD_Xyz
+#Join @Bot_Cracker
