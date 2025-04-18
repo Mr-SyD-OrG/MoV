@@ -23,6 +23,7 @@ from mfinder.db.settings_sql import (
     get_admin_settings,
     get_link,
     get_channel,
+    is_fsub,
 )
 from mfinder.db.ban_sql import is_banned
 from mfinder.db.filters_sql import is_filter
@@ -30,8 +31,7 @@ from mfinder import LOGGER
 
 async def is_subscribed(bot, query):
     try:
-        user = await join_db().get_user(query.from_user.id)
-        if user and user["user_id"] == query.from_user.id:
+        if await is_fsub(user_id):
             return True
         else:
             try:
