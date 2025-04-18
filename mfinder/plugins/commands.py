@@ -5,7 +5,7 @@ import time
 import shutil
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from psutil import cpu_percent, virtual_memory, disk_usage
-from pyrogram import Client, filters
+from pyrogram import Client, filters, enums
 from mfinder.db.broadcast_sql import add_user
 from mfinder.db.settings_sql import get_search_settings, change_search_settings, get_channel
 from mfinder.utils.constants import STARTMSG, HELPMSG
@@ -50,7 +50,7 @@ async def start(bot, update):
                         reply_markup=InlineKeyboardMarkup(
                             [[InlineKeyboardButton("❃ Jᴏɪɴ ❃", url=link.invite_link)]]
                         ),
-                        parse_mode=ParseMode.MARKDOWN,
+                        parse_mode=enums.ParseMode.MARKDOWN,
                         quote=True,
                     )
                     return
