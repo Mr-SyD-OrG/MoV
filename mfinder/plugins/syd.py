@@ -1,4 +1,4 @@
-
+from pyrogram.types import ChatJoinRequest
 from pyrogram import Client, filters, enums
 from mfinder.db.join_req import JoinReqs
 join_db = JoinReqs
