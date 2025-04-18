@@ -54,7 +54,7 @@ async def start(bot, update):
                     )
                     return
             except Exception as e:
-                print(e)
+                LOGGER.warning(e)
                 await update.reply_text(
                     text="Something went wrong, please contact my support group",
                     quote=True,
