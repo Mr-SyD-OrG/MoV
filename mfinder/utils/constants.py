@@ -49,7 +49,7 @@ START_KB = InlineKeyboardMarkup(
         ],
         [
             InlineKeyboardButton("✲ Uᴩᴅᴀᴛᴇꜱ ✲", url="https://t.me/Bot_Cracker"),
-        ]
+        ],
     ]
 )
 
