@@ -48,6 +48,10 @@ START_KB = InlineKeyboardMarkup(
             InlineKeyboardButton(
                 "✧ Sᴜᴩᴩᴏʀᴛ ✧", url="https://t.me/Mod_Moviez_X"
             ),
+        ], [
+            InlineKeyboardButton(
+                "✲ Uᴩᴅᴀᴛᴇꜱ ✲", url="https://t.me/Bot_Cracker"
+            ),
         ]
     ]
 )
