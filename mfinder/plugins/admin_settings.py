@@ -6,6 +6,7 @@ from mfinder.db.settings_sql import (
     set_auto_delete,
     set_custom_caption,
     set_force_sub,
+    
     set_channel_link,
     get_link,
     set_username,
@@ -207,6 +208,7 @@ async def force_sub(bot, update):
         channel = data[-1]
         if channel.lower() == "off":
             channel = 0
+            
 
         if channel:
             try:
@@ -219,6 +221,7 @@ async def force_sub(bot, update):
                 return
 
             await set_force_sub(int(channel))
+            await fsub_false_all()
             await update.reply_text(f"Force Subscription channel set to `{channel}`")
         else:
             await set_channel_link(None)
