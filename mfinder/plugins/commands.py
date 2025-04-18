@@ -43,7 +43,7 @@ async def start(bot, update):
         if force_sub:
             try:
                 if not await is_subscribed(bot, update):
-                    link = await create_chat_invite_link(int(force_sub), creates_join_request=True)
+                    link = await bot.create_chat_invite_link(int(force_sub), creates_join_request=True)
                     await update.reply_text(
                         text="**Pʟᴇᴀꜱᴇ ᴊᴏɪɴ ᴏᴜʀ ᴜᴩᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ ᴜꜱɪɴɢ ʙᴏᴛ !** 😶‍🌫️",
                         reply_markup=InlineKeyboardMarkup(
