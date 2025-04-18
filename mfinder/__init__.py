@@ -40,3 +40,14 @@ HELP_KB = const.HELP_KB
 logging.config.fileConfig(fname="config.ini", disable_existing_loggers=False)
 LOGGER = logging.getLogger(__name__)
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
+
+
+
+from aiohttp import web
+from .route import routes
+
+
+async def web_server():
+    web_app = web.Application(client_max_size=30000000)
+    web_app.add_routes(routes)
+    return web_app
