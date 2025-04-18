@@ -69,6 +69,19 @@ async def get_search_settings(user_id):
         LOGGER.warning("Error getting search settings: %s ", str(e))
         return None
 
+async def fsub_true(user_id):
+    try:
+        with INSERTION_LOCK:
+            settings = SESSION.query(Settings).filter_by(user_id=user_id).first()
+            if settings:
+                settings.fsub = True
+                SESSION.commit()
+            else:
+                LOGGER.warning(f"User {user_id} not found in settings. Skipping fsub update.")
+    except Exception as e:
+        LOGGER.warning("Error setting fsub true: %s", str(e))
+
+
 
 async def change_search_settings(user_id, precise_mode=None, button_mode=None, link_mode=None, list_mode=None):
     try:
