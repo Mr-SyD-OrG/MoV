@@ -120,7 +120,7 @@ async def filter_(bot, message):
                 )
         else:
             await message.reply_text(
-                text="No results found.\nOr retry with the correct spelling 🤐",
+                text="Nᴏ ʀᴇꜱᴜʟᴛꜱ ꜰᴏᴜɴᴅ. ❕\nOʀ ʀᴇᴛʀʏ ᴡɪᴛʜ ᴛʜᴇ <u>ᴄᴏʀʀᴇᴄᴛ ꜱᴩᴇʟʟɪɴɢ</u>🤐",
                 quote=True,
             )
 
@@ -153,7 +153,7 @@ async def pages(bot, query):
             pass
     else:
         await query.message.reply_text(
-            text="No results found.\nOr retry with the correct spelling 🤐",
+            text="Nᴏ ʀᴇꜱᴜʟᴛꜱ ꜰᴏᴜɴᴅ. ❕\nOʀ ʀᴇᴛʀʏ ᴡɪᴛʜ ᴛʜᴇ <u>ᴄᴏʀʀᴇᴄᴛ ꜱᴩᴇʟʟɪɴɢ</u>🤐",
             quote=True,
         )
 
@@ -260,7 +260,7 @@ async def get_result(search, page_no, user_id, username):
             result = (
                 result
                 + "\n\n"
-                + "🔻 __Tap on below corresponding file number to download.__ 🔻"
+                + "🔻 __Tᴀᴩ on below corresponding file number to download.__ 🔻"
             )
         elif link_mode == "ON":
             result = result + "\n\n" + " __Tap on file name & then start to download.__"
