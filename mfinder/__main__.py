@@ -24,7 +24,7 @@ async def main():
         app = web.AppRunner(await web_server())
         await app.setup()
         await web.TCPSite(app, "0.0.0.0", 8080).start()
-        logging.info("Web Response Is Running......🕸️")
+        print("Web Response Is Running......🕸️")
             
         await idle()
         print(f"{me.first_name} - @{me.username} - Stopped !!!")
