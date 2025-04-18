@@ -11,7 +11,7 @@ from mfinder.utils.constants import STARTMSG, HELPMSG
 from mfinder import LOGGER, ADMINS, START_MSG, HELP_MSG, START_KB, HELP_KB
 from mfinder.utils.util_support import humanbytes, get_db_size
 from mfinder.plugins.serve import get_files
-
+from .serve import is_subscribed
 
 @Client.on_message(filters.command(["start"]))
 async def start(bot, update):
@@ -39,6 +39,27 @@ async def start(bot, update):
         if not search_settings:
             await change_search_settings(user_id, button_mode=True)
     elif len(update.command) == 2:
+        force_sub = await get_channel()
+        if force_sub:
+            try:
+                if not is_subscribed(bot, message):
+                    link = await create_chat_invite_link(int(force_sub), creates_join_request=True)
+                    await message.reply_text(
+                        text="**Pʟᴇᴀꜱᴇ ᴊᴏɪɴ ᴏᴜʀ ᴜᴩᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ ᴜꜱɪɴɢ ʙᴏᴛ !** 😶‍🌫️",
+                        reply_markup=InlineKeyboardMarkup(
+                            [[InlineKeyboardButton("❃ Jᴏɪɴ ❃", url=link.invite_link)]]
+                        ),
+                        parse_mode=ParseMode.MARKDOWN,
+                        quote=True,
+                    )
+                    return
+            except Exception as e:
+                print(e)
+                await message.reply_text(
+                    text="Something went wrong, please contact my support group",
+                    quote=True,
+                )
+                return
         await get_files(bot, update)
 
 
