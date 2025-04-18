@@ -37,7 +37,7 @@ async def start(bot, update):
         )
         search_settings = await get_search_settings(user_id)
         if not search_settings:
-            await change_search_settings(user_id, link_mode=True)
+            await change_search_settings(user_id, button_mode=True)
     elif len(update.command) == 2:
         await get_files(bot, update)
 
