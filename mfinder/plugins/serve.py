@@ -31,7 +31,7 @@ from mfinder import LOGGER
 
 async def is_subscribed(bot, query):
     try:
-        if await is_fsub(user_id):
+        if await is_fsub(query.from_user.id):
             return True
         else:
             try:
