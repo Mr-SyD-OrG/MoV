@@ -98,13 +98,21 @@ async def change_search_settings(user_id, precise_mode=None, button_mode=None, l
                     settings.list_mode = list_mode
             else:
                 new_settings = Settings(
-                    user_id=user_id, precise_mode=precise_mode, button_mode=button_mode, link_mode=link_mode, list_mode=list_mode
+                    user_id=user_id, precise_mode=precise_mode, button_mode=button_mode, link_mode=link_mode, list_mode=list_mode, fsub=False
                 )
                 SESSION.add(new_settings)
             SESSION.commit()
             return True
     except Exception as e:
         LOGGER.warning("Error changing search settings: %s ", str(e))
+
+async def fsub_false_all():
+    try:
+        with INSERTION_LOCK:
+            SESSION.query(Settings).update({Settings.fsub: False})
+            SESSION.commit()
+    except Exception as e:
+        LOGGER.warning("Error setting fsub false for all: %s", str(e))
 
 
 async def set_repair_mode(repair_mode):
