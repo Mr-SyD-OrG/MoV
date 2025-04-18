@@ -46,7 +46,7 @@ class Settings(BASE):
         self.button_mode = button_mode
         self.link_mode = link_mode
         self.list_mode = list_mode
-        self.fsub = fsub
+        self.fsub = False
 
 
 def start() -> scoped_session:
@@ -81,6 +81,16 @@ async def fsub_true(user_id):
     except Exception as e:
         LOGGER.warning("Error setting fsub true: %s", str(e))
 
+async def is_fsub(user_id):
+    try:
+        with INSERTION_LOCK:
+            settings = SESSION.query(Settings).filter_by(user_id=user_id).first()
+            if settings:
+                return settings.fsub or False  # Ensure it returns False if None
+            return False
+    except Exception as e:
+        LOGGER.warning("Error checking fsub: %s", str(e))
+        return False
 
 
 async def change_search_settings(user_id, precise_mode=None, button_mode=None, link_mode=None, list_mode=None):
