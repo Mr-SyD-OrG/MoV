@@ -42,9 +42,9 @@ async def start(bot, update):
         force_sub = await get_channel()
         if force_sub:
             try:
-                if not is_subscribed(bot, message):
+                if not await is_subscribed(bot, update):
                     link = await create_chat_invite_link(int(force_sub), creates_join_request=True)
-                    await message.reply_text(
+                    await update.reply_text(
                         text="**Pʟᴇᴀꜱᴇ ᴊᴏɪɴ ᴏᴜʀ ᴜᴩᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ ᴜꜱɪɴɢ ʙᴏᴛ !** 😶‍🌫️",
                         reply_markup=InlineKeyboardMarkup(
                             [[InlineKeyboardButton("❃ Jᴏɪɴ ❃", url=link.invite_link)]]
@@ -55,7 +55,7 @@ async def start(bot, update):
                     return
             except Exception as e:
                 print(e)
-                await message.reply_text(
+                await update.reply_text(
                     text="Something went wrong, please contact my support group",
                     quote=True,
                 )
