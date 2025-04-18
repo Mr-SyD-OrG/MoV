@@ -24,7 +24,7 @@ async def set_precise_mode(bot, query):
     if prsc_mode == "off":
         await change_search_settings(user_id, precise_mode=False)
     if prsc_mode == "md":
-        await query.answer(text="Toggle Precise Search ON/OFF", show_alert=False)
+        await query.answer(text="Tᴏɢɢʟᴇ Pʀᴇᴄɪꜱᴇ Sᴇᴀʀᴄʜ Oɴ/Oꜰꜰ", show_alert=False)
         return
 
     set_kb = await find_search_settings(user_id)
@@ -67,7 +67,7 @@ async def find_search_settings(user_id):
     search_settings = await get_search_settings(user_id)
 
     kb = [
-        InlineKeyboardButton("[Precise Mode]:", callback_data="prec md"),
+        InlineKeyboardButton("[Pʀᴇᴄɪꜱᴇ Mᴏᴅᴇ]:", callback_data="prec md"),
     ]
 
     on_kb = InlineKeyboardButton("❌ Dɪꜱᴀʙʟᴇᴅ", callback_data="prec on")
@@ -76,18 +76,18 @@ async def find_search_settings(user_id):
     if search_settings:
         precise_mode = search_settings.precise_mode
         if precise_mode:
-            precise_mode = "Enabled"
+            precise_mode = "Eɴᴀʙʟᴇᴅ"
             kb.append(off_kb)
         else:
-            precise_mode = "Disabled"
+            precise_mode = "Dɪꜱᴀʙʟᴇᴅ"
             kb.append(on_kb)
     else:
         await change_search_settings(user_id)
-        precise_mode = "Disabled"
+        precise_mode = "Dɪꜱᴀʙʟᴇᴅ"
         kb.append(on_kb)
 
     bkb = [
-        InlineKeyboardButton("[Result Mode]:", callback_data="res mode"),
+        InlineKeyboardButton("[Rᴇꜱᴜʟᴛ Mᴏᴅᴇ]:", callback_data="res mode"),
     ]
 
     btn_kb = InlineKeyboardButton("📃 Lɪꜱᴛ", callback_data="res btnn")
