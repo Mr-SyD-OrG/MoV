@@ -61,29 +61,6 @@ async def filter_(bot, message):
     if await is_banned(user_id):
         await message.reply_text("You are banned. You can't use this bot.", quote=True)
         return
-
-    force_sub = await get_channel()
-    if force_sub:
-        try:
-            if not is_subscribed(bot, message):
-                link = await create_chat_invite_link(int(force_sub))
-                await message.reply_text(
-                    text="**Pʟᴇᴀꜱᴇ ᴊᴏɪɴ ᴏᴜʀ ᴜᴩᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ ᴜꜱɪɴɢ ʙᴏᴛ !** 😶‍🌫️",
-                    reply_markup=InlineKeyboardMarkup(
-                        [[InlineKeyboardButton("❃ Jᴏɪɴ ❃", url=link)]]
-                    ),
-                    parse_mode=ParseMode.MARKDOWN,
-                    quote=True,
-                )
-                return
-        except Exception as e:
-            LOGGER.warning(e)
-            await message.reply_text(
-                text="Something went wrong, please contact my support group",
-                quote=True,
-            )
-            return
-
     admin_settings = await get_admin_settings()
     if admin_settings:
         if admin_settings.repair_mode:
