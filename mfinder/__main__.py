@@ -2,6 +2,7 @@ import uvloop
 from pyrogram import Client, idle, __version__
 from pyrogram.raw.all import layer
 from mfinder import APP_ID, API_HASH, BOT_TOKEN
+from aiohttp import web
 
 uvloop.install()
 
@@ -20,6 +21,11 @@ async def main():
         print(
             f"{me.first_name} - @{me.username} - Pyrogram v{__version__} (Layer {layer}) - Started..."
         )
+        app = web.AppRunner(await web_server())
+        await app.setup()
+        await web.TCPSite(app, "0.0.0.0", 8080).start()
+        logging.info("Web Response Is Running......🕸️")
+            
         await idle()
         print(f"{me.first_name} - @{me.username} - Stopped !!!")
 
