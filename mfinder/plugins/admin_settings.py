@@ -6,7 +6,7 @@ from mfinder.db.settings_sql import (
     set_auto_delete,
     set_custom_caption,
     set_force_sub,
-    
+    fsub_false_all,
     set_channel_link,
     get_link,
     set_username,
