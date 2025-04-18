@@ -38,6 +38,7 @@ class Settings(BASE):
     button_mode = Column(Boolean)
     link_mode = Column(Boolean)
     list_mode = Column(Boolean)
+    fsub = Column(Boolean)
 
     def __init__(self, user_id, precise_mode, button_mode, link_mode, list_mode):
         self.user_id = user_id
@@ -45,6 +46,7 @@ class Settings(BASE):
         self.button_mode = button_mode
         self.link_mode = link_mode
         self.list_mode = list_mode
+        self.fsub = fsub
 
 
 def start() -> scoped_session:
