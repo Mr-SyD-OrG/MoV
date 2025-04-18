@@ -92,7 +92,7 @@ async def find_search_settings(user_id):
 
     btn_kb = InlineKeyboardButton("📃 Lɪꜱᴛ", callback_data="res btnn")
     link_kb = InlineKeyboardButton("🔳 Bᴜᴛᴛᴏɴ", callback_data="res link")
-    list_kb = InlineKeyboardButton("🔗 Hʏᴩᴇʀʟɪɴᴍ", callback_data="res list")
+    list_kb = InlineKeyboardButton("🔗 Hʏᴩᴇʀʟɪɴᴋ", callback_data="res list")
 
     if search_settings:
         button_mode = search_settings.button_mode
