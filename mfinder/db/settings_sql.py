@@ -20,6 +20,7 @@ class AdminSettings(BASE):
     channel_link = Column(TEXT)
     caption_uname = Column(TEXT)
     repair_mode = Column(Boolean)
+    skip = Column(Numeric)
 
     def __init__(self, setting_name="default"):
         self.setting_name = setting_name
@@ -29,6 +30,7 @@ class AdminSettings(BASE):
         self.channel_link = None
         self.caption_uname = None
         self.repair_mode = False
+        self.skip = 0
 
 
 class Settings(BASE):
