@@ -241,7 +241,7 @@ async def get_result(search, page_no, user_id, username):
             result = (
                 result
                 + "\n"
-                + "🔻 __Tᴀᴩ ᴏɴ ʙᴇʟᴏᴡ ᴄᴏʀʀᴇꜱᴩᴏɴᴅɪɴɢ ꜰɪʟᴇ ɴᴜᴍʙᴇʀ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ.__ 🔻"
+                + "__Tᴀᴩ ᴏɴ ʙᴇʟᴏᴡ ᴄᴏʀʀᴇꜱᴩᴏɴᴅɪɴɢ ꜰɪʟᴇ ɴᴜᴍʙᴇʀ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ.__"
             )
         elif link_mode == "ON":
             result = result + "\n\n" + " __Tᴀᴩ ᴏɴ ꜰɪʟᴇ ɴᴀᴍᴇ & ᴛʜᴇɴ ꜱᴛᴀʀᴛ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ.__"
