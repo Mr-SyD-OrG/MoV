@@ -38,15 +38,19 @@ async def is_subscribed(bot, query):
                 AUTH_CHANNEL = await get_channel()
                 user_data = await bot.get_chat_member(AUTH_CHANNEL, query.from_user.id)
             except UserNotParticipant:
-                pass
+                return False
             except Exception as e:
                 LOGGER.warning(e)
+                return False
             else:
                 if user_data.status != enums.ChatMemberStatus.BANNED:
                     return True
+                return False
     except Exception as e:
         LOGGER.warning(e)
         return False
+
+
 
         
 @Client.on_message(
