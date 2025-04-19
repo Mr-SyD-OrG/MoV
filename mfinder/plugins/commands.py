@@ -79,6 +79,50 @@ async def help_m(bot, update):
         reply_markup=HELP_KB,
     )
 
+@Client.on_message(filters.command(["info"]))
+async def syd_info(bot, update):
+    user_id = update.chat.id
+    search_settings = await get_search_settings(user_id)
+    if search_settings:
+        if search_settings.precise_mode:
+            files, count = await get_precise_filter_results(query=search, page=page_no)
+            precise_search = "Enabled"
+        else:
+            files, count = await get_filter_results(query=search, page=page_no)
+            precise_search = "Disabled"
+    else:
+        files, count = await get_filter_results(query=search, page=page_no)
+        precise_search = "Disabled"
+
+    if search_settings:
+        if search_settings.button_mode:
+            button_mode = "ON"
+        else:
+            button_mode = "OFF"
+    else:
+        button_mode = "OFF"
+
+    if search_settings:
+        if search_settings.link_mode:
+            link_mode = "ON"
+        else:
+            link_mode = "OFF"
+    else:
+        link_mode = "OFF"
+
+    if button_mode == "ON" and link_mode == "OFF":
+        search_md = "Button"
+    elif button_mode == "OFF" and link_mode == "ON":
+        search_md = "HyperLink"
+    else:
+        search_md = "List Button"
+
+    await bot.send_message(
+        chat_id=user_id,
+        text=f"**Uꜱᴇʀ Iᴅ: ** {user_id)\n **Pʀᴇᴄɪꜱᴇ Sᴇᴀʀᴄʜ: **`{precise_search}`\n**Result Mode:** `{search_md}`",
+        reply_to_message_id=update.reply_to_message_id,
+        reply_markup=HELP_KB,
+    )
 
 @Client.on_callback_query(filters.regex(r"^back_m$"))
 async def back(bot, query):
