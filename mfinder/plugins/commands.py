@@ -9,7 +9,7 @@ from pyrogram import Client, filters, enums
 from mfinder.db.broadcast_sql import add_user
 from mfinder.db.settings_sql import get_search_settings, change_search_settings, get_channel
 from mfinder.utils.constants import STARTMSG, HELPMSG
-from mfinder import LOGGER, ADMINS, START_MSG, HELP_MSG, START_KB, HELP_KB
+from mfinder import LOGGER, ADMINS, START_MSG, HELP_MSG, START_KB, HELP_KB, PICS
 from mfinder.utils.util_support import humanbytes, get_db_size
 from mfinder.plugins.serve import get_files
 from .serve import is_subscribed
@@ -30,9 +30,10 @@ async def start(bot, update):
             LOGGER.warning(e)
             start_msg = STARTMSG.format(name, user_id)
 
-        await bot.send_message(
+        await bot.send_photo(
             chat_id=update.chat.id,
-            text=start_msg,
+            photo=random.choice(PICS)
+            caption=start_msg,
             reply_to_message_id=update.reply_to_message_id,
             reply_markup=START_KB,
         )
