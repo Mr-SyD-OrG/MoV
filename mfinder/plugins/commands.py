@@ -1,7 +1,7 @@
 import os
 import sys
 import asyncio
-import time
+import time, random
 import shutil
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from psutil import cpu_percent, virtual_memory, disk_usage
