@@ -26,9 +26,9 @@ DB_CHANNELS = [
 ]
 
 #try:
-import const
+#import const
 #except Exception:
-#import sample_const as const
+import sample_const as const
 
 START_MSG = const.START_MSG
 START_KB = const.START_KB
