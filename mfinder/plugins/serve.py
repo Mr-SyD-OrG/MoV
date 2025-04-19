@@ -181,12 +181,12 @@ async def get_result(search, page_no, user_id, username):
         crnt_pg = index // 10 + 1
         tot_pg = (count + 10 - 1) // 10
         btn_count = 0
-        result = f"**Search Query:** `{search}`\n**Total Results:** `{count}`\n**Page:** `{crnt_pg}/{tot_pg}`\n**Precise Search: **`{precise_search}`\n**Result Mode:** `{search_md}`\n"
+        result = f"**Sᴇᴀʀᴄʜ Rᴇꜱᴜʟᴛꜱ Fᴏʀ ** `{search}` ❕\n"
         page = page_no
         for file in files:
             if button_mode == "ON":
                 file_id = file.file_id
-                filename = f"[{get_size(file.file_size)}]{file.file_name}"
+                filename = f"[{get_size(file.file_size)}] {file.file_name}"
                 btn_kb = InlineKeyboardButton(
                     text=f"{filename}", callback_data=f"file {file_id}"
                 )
@@ -202,7 +202,7 @@ async def get_result(search, page_no, user_id, username):
                 btn_count += 1
                 file_id = file.file_id
                 filename = (
-                    f"**{index}.** `{file.file_name}` - `[{get_size(file.file_size)}]`"
+                    f"**{index}.** `[{get_size(file.file_size)}]` - `{file.file_name}`"
                 )
                 result += "\n" + filename
 
@@ -218,11 +218,11 @@ async def get_result(search, page_no, user_id, username):
                     btn[1].append(btn_kb)
 
         nxt_kb = InlineKeyboardButton(
-            text="Nᴇxᴛ >>",
+            text="Nᴇxᴛ ⇉",
             callback_data=f"nxt_pg {user_id} {page + 1} {search}",
         )
         prev_kb = InlineKeyboardButton(
-            text="<< Pʀᴇᴠɪᴏᴜꜱ",
+            text="⇇ Pʀᴇᴠɪᴏᴜꜱ",
             callback_data=f"prev_pg {user_id} {page - 1} {search}",
         )
 
@@ -240,11 +240,11 @@ async def get_result(search, page_no, user_id, username):
         if button_mode and link_mode == "OFF":
             result = (
                 result
-                + "\n\n"
-                + "🔻 __Tᴀᴩ on below corresponding file number to download.__ 🔻"
+                + "\n"
+                + "🔻 __Tᴀᴩ ᴏɴ ʙᴇʟᴏᴡ ᴄᴏʀʀᴇꜱᴩᴏɴᴅɪɴɢ ꜰɪʟᴇ ɴᴜᴍʙᴇʀ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ.__ 🔻"
             )
         elif link_mode == "ON":
-            result = result + "\n\n" + " __Tap on file name & then start to download.__"
+            result = result + "\n\n" + " __Tᴀᴩ ᴏɴ ꜰɪʟᴇ ɴᴀᴍᴇ & ᴛʜᴇɴ ꜱᴛᴀʀᴛ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ.__"
 
         return result, btn
 
