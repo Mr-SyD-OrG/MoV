@@ -25,10 +25,10 @@ DB_CHANNELS = [
     for ch in os.environ.get("DB_CHANNELS", "").split()
 ]
 
-try:
-    import const
-except Exception:
-    import sample_const as const
+#try:
+import const
+#except Exception:
+    #import sample_const as const
 
 START_MSG = const.START_MSG
 START_KB = const.START_KB
