@@ -3,6 +3,7 @@ from pyrogram import Client, filters
 from pyrogram.errors import FloodWait
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from mfinder import ADMINS, LOGGER
+from mfinder.db.settings_sql import get_skip
 from mfinder.db.files_sql import save_file, delete_file
 from mfinder.utils.helpers import edit_caption
 
@@ -51,14 +52,14 @@ async def index_files(bot, message):
 async def index(bot, query):
     user_id = query.from_user.id
     chat_id, last_msg_id = map(int, query.data.split()[1:])
-
+    skip_value = get_skip()
     await query.message.delete()
     msg = await bot.send_message(user_id, "Processing Index...⏳")
     total_files = 0
     async with lock:
         try:
             total = last_msg_id + 1
-            current = 2
+            current = skip_value if skip_value > 1 else 2
             counter = 0
             while True:
                 try:
