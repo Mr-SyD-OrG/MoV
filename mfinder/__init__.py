@@ -26,7 +26,7 @@ DB_CHANNELS = [
 ]
 
 #try:
-import const
+from mfinder.utils.constants import const
 #except Exception:
     #import sample_const as const
 
