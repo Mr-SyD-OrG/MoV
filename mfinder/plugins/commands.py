@@ -86,13 +86,10 @@ async def syd_info(bot, update):
     search_settings = await get_search_settings(user_id)
     if search_settings:
         if search_settings.precise_mode:
-            files, count = await get_precise_filter_results(query=search, page=page_no)
             precise_search = "Enabled"
         else:
-            files, count = await get_filter_results(query=search, page=page_no)
             precise_search = "Disabled"
     else:
-        files, count = await get_filter_results(query=search, page=page_no)
         precise_search = "Disabled"
 
     if search_settings:
