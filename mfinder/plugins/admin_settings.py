@@ -10,6 +10,7 @@ from mfinder.db.settings_sql import (
     set_channel_link,
     get_link,
     set_username,
+    set_skip,
 )
 from mfinder.db.ban_sql import is_banned, ban_user, unban_user
 from mfinder.db.filters_sql import add_filter, rem_filter, list_filters
@@ -200,6 +201,16 @@ async def list_filter(bot, update):
     else:
         await update.reply_text("No filters found")
 
+@Client.on_message(filters.command(["forcesub"]) & filters.user(ADMINS))
+async def set_skip(bot, update):
+    data = update.text.split()
+    if len(data) == 2:
+        skip = data[-1]
+        await set_skip(int(skip))
+        await update.reply_text(f"Sᴋɪᴩ ꜱᴇᴛ ᴛᴏ {skip}")
+    else:
+        await set_skip(0)
+        await update.reply_text(f"Sᴋɪᴩ ꜱᴇᴛ ᴛᴏ 0")
 
 @Client.on_message(filters.command(["forcesub"]) & filters.user(ADMINS))
 async def force_sub(bot, update):
