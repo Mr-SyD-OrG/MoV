@@ -62,6 +62,31 @@ SESSION = start()
 INSERTION_LOCK = threading.RLock()
 
 
+def set_skip(value: int):
+    try:
+        settings = SESSION.query(AdminSettings).filter_by(setting_name="default").first()
+        if settings:
+            settings.skip = value
+        else:
+            settings = AdminSettings()
+            settings.skip = value
+            SESSION.add(settings)
+        SESSION.commit()
+    except Exception as e:
+        SESSION.rollback()
+        LOGGER.warning(f"Error setting skip: {e}")
+        
+def get_skip() -> int:
+    try:
+        settings = SESSION.query(AdminSettings).filter_by(setting_name="default").first()
+        if settings and settings.skip is not None:
+            return int(settings.skip)
+        return 0
+    except Exception as e:
+        LOGGER.warning(f"Error getting skip: {e}")
+        return 0
+
+
 async def get_search_settings(user_id):
     try:
         with INSERTION_LOCK:
