@@ -15,6 +15,7 @@ APP_ID = os.environ.get("APP_ID", "")
 API_HASH = os.environ.get("API_HASH", "")
 BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
 DB_URL = os.environ.get("DB_URL", "")
+PICS = os.environ.get("PICS", "https://envs.sh/YB6.jpg https://envs.sh/YBy.jpg https://envs.sh/YBm.jpg https://envs.sh/YBO.jpg https://envs.sh/YBf.jpg https://envs.sh/YBg.jpg").split()
 OWNER_ID = int(os.environ.get("OWNER_ID", ""))
 ADMINS = [
     int(user) if id_pattern.search(user) else user
