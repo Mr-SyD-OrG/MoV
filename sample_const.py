@@ -7,7 +7,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 STARTMSG = """
 **Hɪ [{}](tg://user?id={})** 🥶, 
 
-**I ᴀᴍ ᴀ ᴍᴇᴅɪᴀ ꜰɪɴᴅᴇʀ ʙᴏᴛ ᴡʜɪᴄʜ ɪꜱ ᴜꜱᴇᴅ ꜰᴏʀ ꜱᴇᴀʀᴄʜɪɴɢ ꜰɪʟᴇꜱ ɪɴ ᴛᴇʟᴇɢʀᴀᴍ 😇. 
+**I'ᴍ ᴀ ᴍᴇᴅɪᴀ ꜰɪɴᴅᴇʀ ʙᴏᴛ ᴡʜɪᴄʜ ɪꜱ ᴜꜱᴇᴅ ꜰᴏʀ ꜱᴇᴀʀᴄʜɪɴɢ ꜰɪʟᴇꜱ ɪɴ ᴛᴇʟᴇɢʀᴀᴍ 😇. 
 Jᴜꜱᴛ ꜱᴇɴᴅ qᴜᴇʀʏ ᴛᴏ ꜰɪɴᴅ ᴛʜᴇ ᴍᴇᴅɪᴀ. 🎐
 Sᴇɴᴅ /help ꜰᴏʀ ᴍᴏʀᴇ 🫗.
 
