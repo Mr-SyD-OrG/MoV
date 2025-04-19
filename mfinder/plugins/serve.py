@@ -188,7 +188,9 @@ async def get_result(search, page_no, user_id, username):
         for file in files:
             if button_mode == "ON":
                 file_id = file.file_id
-                filename = f"[{get_size(file.file_size)}] {file.file_name}"
+                sydname = file.file_name.rsplit(".", 1)
+                sydname = sydname[0].replace(".", " ") + "." + sydname[1]
+                filename = f"[{get_size(file.file_size)}] {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), sydname.split()))}"
                 btn_kb = InlineKeyboardButton(
                     text=f"{filename}", callback_data=f"file {file_id}"
                 )
