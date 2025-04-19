@@ -254,6 +254,28 @@ async def get_result(search, page_no, user_id, username):
 @Client.on_callback_query(filters.regex(r"^file (.+)$"))
 async def get_files(bot, query):
     user_id = query.from_user.id
+    force_sub = await get_channel()
+    if force_sub:
+        try:
+            if not await is_subscribed(bot, update):
+                link = await bot.create_chat_invite_link(int(force_sub), creates_join_request=True)
+                await update.reply_text(
+                    text="**Pʟᴇᴀꜱᴇ ᴊᴏɪɴ ᴏᴜʀ ᴜᴩᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ ᴜꜱɪɴɢ ʙᴏᴛ !** 😶‍🌫️",
+                    reply_markup=InlineKeyboardMarkup(
+                        [[InlineKeyboardButton("❃ Jᴏɪɴ ❃", url=link.invite_link)]]
+                    ),
+                    parse_mode=enums.ParseMode.MARKDOWN,
+                    quote=True,
+                )
+                return
+        except Exception as e:
+            LOGGER.warning(e)
+            await update.reply_text(
+                text="Something went wrong, please contact my support group",
+                quote=True,
+            )
+            return
+
     if isinstance(query, CallbackQuery):
         file_id = query.data.split()[1]
         await query.answer("Sᴇɴᴅɪɴɢ ꜰɪʟᴇ...", cache_time=60)
