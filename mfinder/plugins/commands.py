@@ -48,7 +48,7 @@ async def start(bot, update):
                     await update.reply_text(
                         text="**Pʟᴇᴀꜱᴇ ᴊᴏɪɴ ᴏᴜʀ ᴜᴩᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ ᴜꜱɪɴɢ ʙᴏᴛ !** 😶‍🌫️",
                         reply_markup=InlineKeyboardMarkup(
-                            [[InlineKeyboardButton("❃ Jᴏɪɴ ❃", url=link.invite_link)]]
+                            [[InlineKeyboardButton("❃ Jᴏɪɴ Uᴩᴅᴀᴛᴇ Cʜᴀɴɴᴇʟ ❃", url=link.invite_link)]]
                         ),
                         parse_mode=enums.ParseMode.MARKDOWN,
                         quote=True,
