@@ -6,7 +6,7 @@ join_db = JoinReqs
 
 
 @Client.on_chat_join_request((filters.group | filters.channel))
-async def auto_approve(client, message: ChatJoinRequest):
+async def auto_syd(client, message: ChatJoinRequest):
     AUTH_CHANNEL = await get_channel()
     if message.chat.id == AUTH_CHANNEL:
       syd_user_id = message.from_user.id
