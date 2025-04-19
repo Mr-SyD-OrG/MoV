@@ -31,9 +31,9 @@ DB_CHANNELS = [
 #except Exception:
 import sample_const as const
 
-START_MSG = const.START_MSG
+START_MSG = const.STARTMSG
 START_KB = const.START_KB
-HELP_MSG = const.HELP_MSG
+HELP_MSG = const.HELPMSG
 HELP_KB = const.HELP_KB
 
 
