@@ -87,23 +87,25 @@ async def filter_(bot, message):
 
         if result:
             if btn:
-                await message.reply_text(
+                syd = await message.reply_text(
                     f"{result}",
                     reply_markup=InlineKeyboardMarkup(btn),
                     link_preview_options=LinkPreviewOptions(is_disabled=True),
                     quote=True,
                 )
             else:
-                await message.reply_text(
+                syd = await message.reply_text(
                     f"{result}",
                     link_preview_options=LinkPreviewOptions(is_disabled=True),
                     quote=True,
                 )
         else:
-            await message.reply_text(
+            syd = await message.reply_text(
                 text="Nᴏ ʀᴇꜱᴜʟᴛꜱ ꜰᴏᴜɴᴅ. ❕\nOʀ ʀᴇᴛʀʏ ᴡɪᴛʜ ᴛʜᴇ <u>ᴄᴏʀʀᴇᴄᴛ ꜱᴩᴇʟʟɪɴɢ</u>🤐",
                 quote=True,
             )
+        await asyncio.sleep(600)
+        await syd.delete()
 
 
 @Client.on_callback_query(filters.regex(r"^(nxt_pg|prev_pg) \d+ \d+ .+$"))
@@ -181,7 +183,7 @@ async def get_result(search, page_no, user_id, username):
         crnt_pg = index // 10 + 1
         tot_pg = (count + 10 - 1) // 10
         btn_count = 0
-        result = f"**Sᴇᴀʀᴄʜ Rᴇꜱᴜʟᴛꜱ Fᴏʀ ** `{search}` ❕\n"
+        result = f"**Sᴇᴀʀᴄʜ Rᴇꜱᴜʟᴛꜱ Fᴏʀ ** `{search}` ❕"
         page = page_no
         for file in files:
             if button_mode == "ON":
@@ -241,10 +243,10 @@ async def get_result(search, page_no, user_id, username):
             result = (
                 result
                 + "\n"
-                + "__Tᴀᴩ ᴏɴ ʙᴇʟᴏᴡ ᴄᴏʀʀᴇꜱᴩᴏɴᴅɪɴɢ ꜰɪʟᴇ ɴᴜᴍʙᴇʀ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ.__"
+                + "__Tᴀᴩ ᴏɴ ʙᴇʟᴏᴡ ᴄᴏʀʀᴇꜱᴩᴏɴᴅɪɴɢ ꜰɪʟᴇ ʙᴜᴛᴛᴏɴ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ.__"
             )
         elif link_mode == "ON":
-            result = result + "\n\n" + " __Tᴀᴩ ᴏɴ ꜰɪʟᴇ ɴᴀᴍᴇ & ᴛʜᴇɴ ꜱᴛᴀʀᴛ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ.__"
+            result = result + "\n" + " __Tᴀᴩ ᴏɴ ꜰɪʟᴇ ɴᴀᴍᴇ & ᴛʜᴇɴ ꜱᴛᴀʀᴛ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ.__"
 
         return result, btn
 
@@ -319,12 +321,12 @@ async def get_files(bot, query):
             minsec = str(delay) + " mins" if delay_dur > 60 else str(delay) + " secs"
             disc = await bot.send_message(
                 user_id,
-                f"⚠️ Pʟᴇᴀꜱᴇ ꜱᴀᴠᴇ ᴛʜᴇ ꜰɪʟᴇ ʙʏ ʀᴇꜰᴏʀᴡᴀʀᴅɪɴɢ ɪᴛ, ᴏʀ ᴛᴏ ꜱᴀᴠᴇᴅ ᴍᴇꜱꜱᴀɢᴇ, ɪᴛ ᴡɪʟʟ ʙᴇ ᴅᴇʟᴇᴛᴇᴅ ɪɴ {minsec} ⚠️",
+                f"**⚠️ Pʟᴇᴀꜱᴇ ꜱᴀᴠᴇ ᴛʜᴇ ꜰɪʟᴇ ʙʏ ʀᴇꜰᴏʀᴡᴀʀᴅɪɴɢ ɪᴛ ᴛᴏ ᴍᴇ, ᴏʀ ᴛᴏ ꜱᴀᴠᴇᴅ ᴍᴇꜱꜱᴀɢᴇ, ɪᴛ ᴡɪʟʟ ʙᴇ ᴅᴇʟᴇᴛᴇᴅ ɪɴ {minsec}**",
             )
             await asyncio.sleep(delay_dur)
             await disc.delete()
             await msg.delete()
-            await bot.send_message(user_id, "❕ Fɪʟᴇ ʜᴀꜱ ʙᴇᴇɴ ᴅᴇʟᴇᴛᴇᴅ ❕")
+            await bot.send_message(user_id, "❕ Fɪʟᴇ ʜᴀꜱ ʙᴇᴇɴ ᴅᴇʟᴇᴛᴇᴅ ❕ [ᴩʟᴇᴀꜱᴇ ꜱᴇᴀʀᴄʜ ᴀɢᴀɪɴ ꜰᴏʀ ɪᴛ ✨]")
 
 
 def get_size(size):
