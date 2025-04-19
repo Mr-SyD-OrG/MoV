@@ -3,7 +3,7 @@ import sys
 import asyncio
 import time, random
 import shutil
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, InputMediaPhoto
 from psutil import cpu_percent, virtual_memory, disk_usage
 from pyrogram import Client, filters, enums
 from mfinder.db.broadcast_sql import add_user
@@ -134,6 +134,11 @@ async def back(bot, query):
     except Exception as e:
         LOGGER.warning(e)
         start_msg = STARTMSG
+    await bot.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+    )
     await query.message.edit_text(start_msg, reply_markup=START_KB)
 
 
@@ -144,6 +149,11 @@ async def help_cb(bot, query):
     except Exception as e:
         LOGGER.warning(e)
         help_msg = HELPMSG
+    await bot.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+    )
     await query.message.edit_text(help_msg, reply_markup=HELP_KB)
 
 
