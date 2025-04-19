@@ -261,7 +261,7 @@ async def get_files(bot, query):
         try:
             if not await is_subscribed(bot, update):
                 link = await bot.create_chat_invite_link(int(force_sub), creates_join_request=True)
-                await update.reply_text(
+                await query.reply_text(
                     text="**Pʟᴇᴀꜱᴇ ᴊᴏɪɴ ᴏᴜʀ ᴜᴩᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ ᴜꜱɪɴɢ ʙᴏᴛ !** 😶‍🌫️",
                     reply_markup=InlineKeyboardMarkup(
                         [[InlineKeyboardButton("❃ Jᴏɪɴ ❃", url=link.invite_link)]]
@@ -272,7 +272,7 @@ async def get_files(bot, query):
                 return
         except Exception as e:
             LOGGER.warning(e)
-            await update.reply_text(
+            await query.reply_text(
                 text="Something went wrong, please contact my support group",
                 quote=True,
             )
