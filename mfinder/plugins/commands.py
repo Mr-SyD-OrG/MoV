@@ -32,7 +32,7 @@ async def start(bot, update):
 
         await bot.send_photo(
             chat_id=update.chat.id,
-            photo=random.choice(PICS)
+            photo=random.choice(PICS),
             caption=start_msg,
             reply_to_message_id=update.reply_to_message_id,
             reply_markup=START_KB,
