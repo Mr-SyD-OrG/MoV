@@ -279,11 +279,11 @@ async def get_files(bot, query):
                 return
         except Exception as e:
             LOGGER.warning(e)
-            await query.reply_text(
+            await bot.send_message(
+                ADMINS,
                 text="Something went wrong, please contact my support group",
                 quote=True,
             )
-            return
 
     if isinstance(query, CallbackQuery):
         file_id = query.data.split()[1]
@@ -306,20 +306,28 @@ async def get_files(bot, query):
         if admin_settings.caption_uname:
             f_caption = f_caption + "\n" + admin_settings.caption_uname
 
-        if cbq:
-            msg = await query.message.reply_cached_media(
-                file_id=file_id,
-                caption=f_caption,
-                parse_mode=ParseMode.MARKDOWN,
-                quote=True,
-            )
-        else:
-            msg = await query.reply_cached_media(
-                file_id=file_id,
-                caption=f_caption,
-                parse_mode=ParseMode.MARKDOWN,
-                quote=True,
-            )
+        try:
+            if cbq:
+                msg = await query.message.reply_cached_media(
+                    file_id=file_id,
+                    caption=f_caption,
+                    parse_mode=ParseMode.MARKDOWN,
+                    quote=True,
+                )
+            else:
+                msg = await query.reply_cached_media(
+                    file_id=file_id,
+                    caption=f_caption,
+                    parse_mode=ParseMode.MARKDOWN,
+                    quote=True,
+                )
+        except UserIsBlocked:
+            await query.answer('Uɴʙʟᴏᴄᴋ ᴛʜᴇ ʙᴏᴛ ᴍᴀʜɴ !', show_alert=True)
+        except PeerIdInvalid:
+            await query.answer(url=f"https://telegram.me/movies_forage_bot?start=file {file_id}")
+        except Exception as e:
+            await query.answer(url=f"https://telegram.me/movies_forage_bot?start=file {file_id}")
+            
 
         if admin_settings.auto_delete:
             delay_dur = admin_settings.auto_delete
