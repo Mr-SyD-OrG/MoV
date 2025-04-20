@@ -5,11 +5,11 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 #use the same format for name & user_id placeholders
 STARTMSG = """
-**Hɪ [{}](tg://user?id={})** 🥶, 
+**ʜɪ [{}](tg://user?id={})** 🥶, 
 
-**I'ᴍ ᴀ ᴍᴇᴅɪᴀ ꜰɪɴᴅᴇʀ ʙᴏᴛ ᴡʜɪᴄʜ ɪꜱ ᴜꜱᴇᴅ ꜰᴏʀ ꜱᴇᴀʀᴄʜɪɴɢ ꜰɪʟᴇꜱ ɪɴ ᴛᴇʟᴇɢʀᴀᴍ 😇. 
-Jᴜꜱᴛ ꜱᴇɴᴅ qᴜᴇʀʏ ᴛᴏ ꜰɪɴᴅ ᴛʜᴇ ᴍᴇᴅɪᴀ. 🎐
-Sᴇɴᴅ /help ꜰᴏʀ ᴍᴏʀᴇ 🫗.
+**ɪ'ᴍ ᴀ ᴍᴇᴅɪᴀ ꜰᴏʀᴀɢᴇ [ꜰɪɴᴅᴇʀ] ʙᴏᴛ ᴡʜɪᴄʜ ɪꜱ ᴜꜱᴇᴅ ꜰᴏʀ ꜱᴇᴀʀᴄʜɪɴɢ ꜰɪʟᴇꜱ ɪɴ ᴛᴇʟᴇɢʀᴀᴍ 😇. 
+ᴊᴜꜱᴛ ꜱᴇɴᴅ qᴜᴇʀʏ ᴛᴏ ꜰɪɴᴅ ᴛʜᴇ ᴍᴇᴅɪᴀ. 🎐
+ꜱᴇɴᴅ /help ꜰᴏʀ ᴍᴏʀᴇ 🫗.
 
 Jᴏɪɴ : @Mod_Moviez_X 🏔️**"""
 
