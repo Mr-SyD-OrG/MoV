@@ -324,9 +324,9 @@ async def get_files(bot, query):
         except UserIsBlocked:
             await query.answer('Uɴʙʟᴏᴄᴋ ᴛʜᴇ ʙᴏᴛ ᴍᴀʜɴ !', show_alert=True)
         except PeerIdInvalid:
-            await query.answer(url=f"https://telegram.me/movies_forage_bot?start=file {file_id}")
+            await query.answer(url=f"https://telegram.me/movies_forage_bot?start={file_id}")
         except Exception as e:
-            await query.answer(url=f"https://telegram.me/movies_forage_bot?start=file {file_id}")
+            await query.answer(url=f"https://telegram.me/movies_forage_bot?start={file_id}")
             
 
         if admin_settings.auto_delete:
