@@ -202,7 +202,7 @@ async def list_filter(bot, update):
         await update.reply_text("No filters found")
 
 @Client.on_message(filters.command(["setskip"]) & filters.user(ADMINS))
-async def set_skip(bot, update):
+async def setskip(bot, update):
     data = update.text.split()
     if len(data) == 2:
         skip = data[-1]
