@@ -117,9 +117,8 @@ async def syd_info(bot, update):
 
     await bot.send_message(
         chat_id=user_id,
-        text=f"**Uꜱᴇʀ Iᴅ: ** {user_id}\n **Pʀᴇᴄɪꜱᴇ Sᴇᴀʀᴄʜ: **`{precise_search}`\n**Rᴇꜱᴜʟᴛ Mᴏᴅᴇ:** `{search_md}`\n\nUꜱᴇ /settings Tᴏ Cʜᴀɴɢᴇ Tʜᴇꜱᴇ INFO. 🎢",
+        text=f"**Uꜱᴇʀ Iᴅ: ** {user_id}\n**Pʀᴇᴄɪꜱᴇ Sᴇᴀʀᴄʜ: **`{precise_search}`\n**Rᴇꜱᴜʟᴛ Mᴏᴅᴇ:** `{search_md}`\n\nUꜱᴇ /settings Tᴏ Cʜᴀɴɢᴇ Tʜᴇꜱᴇ INFO. 🎢",
         reply_to_message_id=update.reply_to_message_id,
-        reply_markup=HELP_KB,
     )
 
 @Client.on_callback_query(filters.regex(r"^back_m$"))
