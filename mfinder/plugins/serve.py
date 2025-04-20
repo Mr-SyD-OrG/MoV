@@ -155,12 +155,12 @@ async def get_result(search, page_no, user_id, username):
         precise_search = "Disabled"
 
     if search_settings:
-        if search_settings.button_mode:
-            button_mode = "ON"
+        if search_settings.list_mode:
+            list_mode = "ON"
         else:
-            button_mode = "OFF"
+            list_mode = "OFF"
     else:
-        button_mode = "OFF"
+        list_mode = "OFF"
 
     if search_settings:
         if search_settings.link_mode:
@@ -170,12 +170,12 @@ async def get_result(search, page_no, user_id, username):
     else:
         link_mode = "OFF"
 
-    if button_mode == "ON" and link_mode == "OFF":
-        search_md = "Button"
-    elif button_mode == "OFF" and link_mode == "ON":
+    if list_mode == "ON" and link_mode == "OFF":
+        search_md = "List Button"
+    elif list_mode == "OFF" and link_mode == "ON":
         search_md = "HyperLink"
     else:
-        search_md = "List Button"
+        search_md = "Button"
 
     if files:
         btn = []
