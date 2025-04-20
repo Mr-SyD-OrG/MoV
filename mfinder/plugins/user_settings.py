@@ -67,7 +67,7 @@ async def find_search_settings(user_id):
     search_settings = await get_search_settings(user_id)
 
     kb = [
-        InlineKeyboardButton("[Pʀᴇᴄɪꜱᴇ Mᴏᴅᴇ]:", callback_data="prec md"),
+        InlineKeyboardButton("Pʀᴇᴄɪꜱᴇ Mᴏᴅᴇ:", callback_data="prec md"),
     ]
 
     on_kb = InlineKeyboardButton("❌ Dɪꜱᴀʙʟᴇᴅ", callback_data="prec on")
@@ -87,7 +87,7 @@ async def find_search_settings(user_id):
         kb.append(on_kb)
 
     bkb = [
-        InlineKeyboardButton("[Rᴇꜱᴜʟᴛ Mᴏᴅᴇ]:", callback_data="res mode"),
+        InlineKeyboardButton("Rᴇꜱᴜʟᴛ Mᴏᴅᴇ:", callback_data="res mode"),
     ]
 
     btn_kb = InlineKeyboardButton("📃 Lɪꜱᴛ", callback_data="res btnn")
