@@ -186,22 +186,7 @@ async def get_result(search, page_no, user_id, username):
         result = f"**Sᴇᴀʀᴄʜ Rᴇꜱᴜʟᴛꜱ Fᴏʀ ** `{search}` ❕"
         page = page_no
         for file in files:
-            if button_mode == "ON":
-                file_id = file.file_id
-                sydname = file.file_name.rsplit(".", 1)
-                sydname = sydname[0].replace(".", " ") + "." + sydname[1]
-                filename = f"[{get_size(file.file_size)}] {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), sydname.split()))}"
-                btn_kb = InlineKeyboardButton(
-                    text=f"{filename}", callback_data=f"file {file_id}"
-                )
-                btn.append([btn_kb])
-            elif link_mode == "ON":
-                index += 1
-                btn_count += 1
-                file_id = file.file_id
-                filename = f"**{index}.** [{file.file_name}](https://t.me/{username}/?start={file_id}) - `[{get_size(file.file_size)}]`"
-                result += "\n" + filename
-            else:
+            if list_mode == "ON":
                 index += 1
                 btn_count += 1
                 file_id = file.file_id
@@ -220,6 +205,22 @@ async def get_result(search, page_no, user_id, username):
                     btn[0].append(btn_kb)
                 else:
                     btn[1].append(btn_kb)
+                
+            elif link_mode == "ON":
+                index += 1
+                btn_count += 1
+                file_id = file.file_id
+                filename = f"**{index}.** [{file.file_name}](https://t.me/{username}/?start={file_id}) - `[{get_size(file.file_size)}]`"
+                result += "\n" + filename
+            else:
+                file_id = file.file_id
+                sydname = file.file_name.rsplit(".", 1)
+                sydname = sydname[0].replace(".", " ") + "." + sydname[1]
+                filename = f"[{get_size(file.file_size)}] {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), sydname.split()))}"
+                btn_kb = InlineKeyboardButton(
+                    text=f"{filename}", callback_data=f"file {file_id}"
+                )
+                btn.append([btn_kb])
 
         nxt_kb = InlineKeyboardButton(
             text="Nᴇxᴛ ⇉",
