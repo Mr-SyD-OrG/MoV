@@ -206,10 +206,10 @@ async def setskip(bot, update):
     data = update.text.split()
     if len(data) == 2:
         skip = data[-1]
-        await set_skip(int(skip))
+        set_skip(int(skip))
         await update.reply_text(f"Sᴋɪᴩ ꜱᴇᴛ ᴛᴏ {skip}")
     else:
-        await set_skip(0)
+        set_skip(0)
         await update.reply_text(f"Sᴋɪᴩ ꜱᴇᴛ ᴛᴏ 0")
 
 @Client.on_message(filters.command(["forcesub"]) & filters.user(ADMINS))
