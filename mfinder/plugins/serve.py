@@ -190,8 +190,10 @@ async def get_result(search, page_no, user_id, username):
                 index += 1
                 btn_count += 1
                 file_id = file.file_id
+                sydname = file.file_name.rsplit(".", 1)
+                sydname = re.sub(r"[._]", " ", sydname[0]) + "." + sydname[1]
                 filename = (
-                    f"**{index}.** `[{get_size(file.file_size)}]` - `{file.file_name}`"
+                    f"**{index}.** `[{get_size(file.file_size)}]` - `{sydname}`"
                 )
                 result += "\n" + filename
 
@@ -210,12 +212,14 @@ async def get_result(search, page_no, user_id, username):
                 index += 1
                 btn_count += 1
                 file_id = file.file_id
-                filename = f"**{index}.** [{file.file_name}](https://t.me/{username}/?start={file_id}) - `[{get_size(file.file_size)}]`"
+                sydname = file.file_name.rsplit(".", 1)
+                sydname = re.sub(r"[._]", " ", sydname[0]) + "." + sydname[1]
+                filename = f"**{index}.** [{sydname}](https://t.me/{username}/?start={file_id}) - `[{get_size(file.file_size)}]`"
                 result += "\n" + filename
             else:
                 file_id = file.file_id
                 sydname = file.file_name.rsplit(".", 1)
-                sydname = sydname[0].replace(".", " ") + "." + sydname[1]
+                sydname = re.sub(r"[._]", " ", sydname[0]) + "." + sydname[1]
                 filename = f"[{get_size(file.file_size)}] {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), sydname.split()))}"
                 btn_kb = InlineKeyboardButton(
                     text=f"{filename}", callback_data=f"file {file_id}"
@@ -242,11 +246,11 @@ async def get_result(search, page_no, user_id, username):
         if kb:
             btn.append(kb)
 
-        if button_mode and link_mode == "OFF":
+        if list_mode == "ON":
             result = (
                 result
                 + "\n"
-                + "__Tᴀᴩ ᴏɴ ʙᴇʟᴏᴡ ᴄᴏʀʀᴇꜱᴩᴏɴᴅɪɴɢ ꜰɪʟᴇ ʙᴜᴛᴛᴏɴ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ.__"
+                + "__Tᴀᴩ ᴏɴ ʙᴇʟᴏᴡ ᴄᴏʀʀᴇꜱᴩᴏɴᴅɪɴɢ ꜰɪʟᴇ ɴᴜᴍʙᴇʀ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ.__"
             )
         elif link_mode == "ON":
             result = result + "\n" + " __Tᴀᴩ ᴏɴ ꜰɪʟᴇ ɴᴀᴍᴇ & ᴛʜᴇɴ ꜱᴛᴀʀᴛ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ.__"
