@@ -321,7 +321,8 @@ async def get_files(bot, query):
                     caption=f_caption,
                     parse_mode=ParseMode.MARKDOWN,
                 )
-
+            if query.message.chat.type != enums.ChatType.PRIVATE:
+            await query.answer("Fɪʟᴇ ʜᴀꜱ ʙᴇᴇɴ ꜰᴏʀᴡᴀʀᴅᴇᴅ!.. Cʜᴇᴄᴋ PM 🗜️", show_alert=True)
         except UserIsBlocked:
             await query.answer('Uɴʙʟᴏᴄᴋ ᴛʜᴇ ʙᴏᴛ ᴍᴀʜɴ !', show_alert=True)
         except PeerIdInvalid:
