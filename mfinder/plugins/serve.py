@@ -27,7 +27,7 @@ from mfinder.db.settings_sql import (
 )
 from mfinder.db.ban_sql import is_banned
 from mfinder.db.filters_sql import is_filter
-from mfinder import LOGGER
+from mfinder import LOGGER, ADMINS
 
 async def is_subscribed(bot, query):
     try:
