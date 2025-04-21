@@ -11,7 +11,7 @@ from mfinder.db.settings_sql import get_search_settings, change_search_settings,
 from mfinder.utils.constants import STARTMSG, HELPMSG
 from mfinder import LOGGER, ADMINS, START_MSG, HELP_MSG, START_KB, HELP_KB, PICS
 from mfinder.utils.util_support import humanbytes, get_db_size
-from mfinder.plugins.serve import get_files
+from mfinder.plugins.serve import syd_files
 from .serve import is_subscribed
 
 @Client.on_message(filters.command(["start"]))
@@ -62,7 +62,8 @@ async def start(bot, update):
                     quote=True,
                 )
                 return
-        await get_files(bot, update)
+        mrsyd = update.data.split()[1]
+        await syd_files(bot, update, mrsyd)
 
 
 @Client.on_message(filters.command(["help"]))
