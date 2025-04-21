@@ -62,7 +62,7 @@ async def start(bot, update):
                     quote=True,
                 )
                 return
-        mrsyd = update.data.split()[1]
+        mrsyd = update.text.split()[1]
         await syd_files(bot, update, mrsyd)
 
 
