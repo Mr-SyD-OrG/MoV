@@ -309,7 +309,7 @@ async def get_files(bot, query):
         try:
             if query.message.chat.type != enums.ChatType.PRIVATE:
                 msg = await bot.send_cached_media(
-                    chat_id=query.from_user.id,
+                    chat_id=int(user_id),
                     file_id=file_id,
                     caption=f_caption,
                     parse_mode=ParseMode.MARKDOWN,
@@ -317,7 +317,7 @@ async def get_files(bot, query):
                 await query.answer("Fɪʟᴇ ʜᴀꜱ ʙᴇᴇɴ ꜰᴏʀᴡᴀʀᴅᴇᴅ!.. Cʜᴇᴄᴋ DM 🗜️", show_alert=True)
             else:
                 msg = await bot.send_cached_media(
-                    chat_id=query.from_user.id,
+                    chat_id=int(user_id),
                     file_id=file_id,
                     caption=f_caption,
                     parse_mode=ParseMode.MARKDOWN,
