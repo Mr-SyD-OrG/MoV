@@ -9,7 +9,7 @@ from pyrogram.types import (
     LinkPreviewOptions,
 )
 from pyrogram.enums import ParseMode, ChatMemberStatus
-from pyrogram.errors import UserNotParticipant
+from pyrogram.errors import UserNotParticipant, UserIsBlocked, PeerIdInvalid
 from pyrogram.errors.exceptions.bad_request_400 import MessageNotModified
 from mfinder.db.files_sql import (
     get_filter_results,
