@@ -316,20 +316,12 @@ async def get_files(bot, query):
                 )
                 await query.answer("Fɪʟᴇ ʜᴀꜱ ʙᴇᴇɴ ꜰᴏʀᴡᴀʀᴅᴇᴅ!.. Cʜᴇᴄᴋ DM 🗜️", show_alert=True)
             else:
-                if cbq:
-                    msg = await query.message.reply_cached_media(
-                        file_id=file_id,
-                        caption=f_caption,
-                        parse_mode=ParseMode.MARKDOWN,
-                        quote=True,
-                    )
-                else:
-                    msg = await query.reply_cached_media(
-                        file_id=file_id,
-                        caption=f_caption,
-                        parse_mode=ParseMode.MARKDOWN,
-                        quote=True,
-                    )
+                msg = await bot.send_cached_media(
+                    chat_id=query.from_user.id,
+                    file_id=file_id,
+                    caption=f_caption,
+                    parse_mode=ParseMode.MARKDOWN,
+                )
         except UserIsBlocked:
             await query.answer('Uɴʙʟᴏᴄᴋ ᴛʜᴇ ʙᴏᴛ ᴍᴀʜɴ !', show_alert=True)
         except PeerIdInvalid:
