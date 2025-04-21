@@ -191,7 +191,7 @@ async def get_result(search, page_no, user_id, username):
                 btn_count += 1
                 file_id = file.file_id
                 sydname = file.file_name.rsplit(".", 1)
-                sydname = re.sub(r"[._]", " ", sydname[0]) + "." + sydname[1]
+                sydname = re.sub(r"[._[-(])]", " ", sydname[0]) + "." + sydname[1]
                 filename = (
                     f"**{index}.** `[{get_size(file.file_size)}]` - `{sydname}`"
                 )
