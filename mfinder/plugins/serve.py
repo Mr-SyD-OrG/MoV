@@ -268,7 +268,8 @@ async def get_files(bot, query):
         try:
             if not await is_subscribed(bot, query):
                 link = await bot.create_chat_invite_link(int(force_sub), creates_join_request=True)
-                await query.reply_text(
+                await bot.send_message(
+                    chat_id=query.from_user.id,
                     text="**Pʟᴇᴀꜱᴇ ᴊᴏɪɴ ᴏᴜʀ ᴜᴩᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ ᴜꜱɪɴɢ ʙᴏᴛ !** 😶‍🌫️",
                     reply_markup=InlineKeyboardMarkup(
                         [[InlineKeyboardButton("❃ Jᴏɪɴ Uᴩᴅᴀᴛᴇꜱ Cʜᴀɴɴᴇʟ ❃", url=link.invite_link)]]
