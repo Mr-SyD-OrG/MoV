@@ -275,7 +275,7 @@ async def get_files(bot, query):
                         [[InlineKeyboardButton("❃ Jᴏɪɴ Uᴩᴅᴀᴛᴇꜱ Cʜᴀɴɴᴇʟ ❃", url=link.invite_link)]]
                     ),
                     parse_mode=enums.ParseMode.MARKDOWN,
-                    quote=True,
+         
                 )
                 return
         except Exception as e:
