@@ -50,6 +50,51 @@ async def is_subscribed(bot, query):
         LOGGER.warning(e)
         return False
 
+async def syd_files(bot, query, file_id):
+    user_id = query.from_user.id
+    filedetails = await get_file_details(file_id)
+    admin_settings = await get_admin_settings()
+    for files in filedetails:
+        f_caption = files.caption
+        if admin_settings.custom_caption:
+            f_caption = admin_settings.custom_caption
+        elif f_caption is None:
+            f_caption = f"{files.file_name}"
+
+        f_caption = "`" + f_caption + "`"
+
+        if admin_settings.caption_uname:
+            f_caption = f_caption + "\n" + admin_settings.caption_uname
+
+        try:
+            msg = await bot.send_cached_media(
+                chat_id=int(user_id),
+                file_id=file_id,
+                caption=f_caption,
+                parse_mode=ParseMode.MARKDOWN,
+            )
+        except UserIsBlocked:
+            await query.answer('Uɴʙʟᴏᴄᴋ ᴛʜᴇ ʙᴏᴛ ᴍᴀʜɴ !', show_alert=True)
+        except PeerIdInvalid:
+            await bot.send_message(user_id, "ᴛʀʏ ᴀɢᴀɪɴ")
+        except Exception as e:
+            await bot.send_message(user_id, "ᴛʀʏ ᴀɢᴀɪɴ")
+
+
+        if admin_settings.auto_delete:
+            delay_dur = admin_settings.auto_delete
+            delay = delay_dur / 60 if delay_dur > 60 else delay_dur
+            delay = round(delay, 2)
+            minsec = str(delay) + " mins" if delay_dur > 60 else str(delay) + " secs"
+            disc = await bot.send_message(
+                user_id,
+                f"**⚠ <u>WARNING</u> ⚠ : \n\nPʟᴇᴀꜱᴇ <u>ꜱᴀᴠᴇ ᴛʜᴇ ꜰɪʟᴇ ʙʏ ʀᴇꜰᴏʀᴡᴀʀᴅɪɴɢ ɪᴛ ᴛᴏ ᴍᴇ</u>, ᴏʀ ᴛᴏ ꜱᴀᴠᴇᴅ ᴍᴇꜱꜱᴀɢᴇ, ɪᴛ ᴡɪʟʟ ʙᴇ ᴅᴇʟᴇᴛᴇᴅ ɪɴ {minsec}**",
+            )
+            await asyncio.sleep(delay_dur)
+            await disc.delete()
+            await msg.delete()
+            await bot.send_message(user_id, "❕ Fɪʟᴇ ʜᴀꜱ ʙᴇᴇɴ ᴅᴇʟᴇᴛᴇᴅ ❕ \n[ᴩʟᴇᴀꜱᴇ ꜱᴇᴀʀᴄʜ ᴀɢᴀɪɴ ꜰᴏʀ ɪᴛ ✨]")
+
 
 
         
