@@ -282,7 +282,6 @@ async def get_files(bot, query):
             await bot.send_message(
                 ADMINS,
                 text="Something went wrong, please contact my support group",
-                quote=True,
             )
 
     if isinstance(query, CallbackQuery):
@@ -322,7 +321,6 @@ async def get_files(bot, query):
                         caption=f_caption,
                         parse_mode=ParseMode.MARKDOWN,
                         quote=True,
-
                     )
                 else:
                     msg = await query.reply_cached_media(
