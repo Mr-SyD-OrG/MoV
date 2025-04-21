@@ -314,7 +314,7 @@ async def get_files(bot, query):
                     caption=f_caption,
                     parse_mode=ParseMode.MARKDOWN,
                 )
-                await query.answer("Fɪʟᴇ ʜᴀꜱ ʙᴇᴇɴ ꜰᴏʀᴡᴀʀᴅᴇᴅ!.. Cʜᴇᴄᴋ PM 🗜️", show_alert=True)
+                await query.answer("Fɪʟᴇ ʜᴀꜱ ʙᴇᴇɴ ꜰᴏʀᴡᴀʀᴅᴇᴅ!.. Cʜᴇᴄᴋ DM 🗜️", show_alert=True)
             else:
                 if cbq:
                     msg = await query.message.reply_cached_media(
