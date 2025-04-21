@@ -266,7 +266,6 @@ async def get_files(bot, query):
     force_sub = await get_channel()
     if isinstance(query, CallbackQuery):
         file_id = query.data.split()[1]
-        await query.answer("Sᴇɴᴅɪɴɢ ꜰɪʟᴇ...", cache_time=60)
         cbq = True
     elif isinstance(query, Message):
         file_id = query.text.split()[1]
@@ -274,6 +273,7 @@ async def get_files(bot, query):
     if force_sub:
         await query.answer(url=f"https://telegram.me/movies_forage_bot?start={file_id}")
         return
+    await query.answer("Sᴇɴᴅɪɴɢ ꜰɪʟᴇ...", cache_time=60)
     filedetails = await get_file_details(file_id)
     admin_settings = await get_admin_settings()
     for files in filedetails:
