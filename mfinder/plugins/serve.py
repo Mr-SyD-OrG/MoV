@@ -318,7 +318,6 @@ async def get_files(bot, query):
             else:
                 if cbq:
                     msg = await query.message.reply_cached_media(
-                        chat_id=query.from_user.id,
                         file_id=file_id,
                         caption=f_caption,
                         parse_mode=ParseMode.MARKDOWN,
@@ -327,7 +326,6 @@ async def get_files(bot, query):
                     )
                 else:
                     msg = await query.reply_cached_media(
-                        chat_id=query.from_user.id,
                         file_id=file_id,
                         caption=f_caption,
                         parse_mode=ParseMode.MARKDOWN,
