@@ -338,7 +338,7 @@ async def get_files(bot, query):
             minsec = str(delay) + " mins" if delay_dur > 60 else str(delay) + " secs"
             disc = await bot.send_message(
                 user_id,
-                f"**⚠️ Pʟᴇᴀꜱᴇ ꜱᴀᴠᴇ ᴛʜᴇ ꜰɪʟᴇ ʙʏ ʀᴇꜰᴏʀᴡᴀʀᴅɪɴɢ ɪᴛ ᴛᴏ ᴍᴇ, ᴏʀ ᴛᴏ ꜱᴀᴠᴇᴅ ᴍᴇꜱꜱᴀɢᴇ, ɪᴛ ᴡɪʟʟ ʙᴇ ᴅᴇʟᴇᴛᴇᴅ ɪɴ {minsec}**",
+                f"**⚠️ Pʟᴇᴀꜱᴇ <u>ꜱᴀᴠᴇ ᴛʜᴇ ꜰɪʟᴇ ʙʏ ʀᴇꜰᴏʀᴡᴀʀᴅɪɴɢ ɪᴛ ᴛᴏ ᴍᴇ</u>, ᴏʀ ᴛᴏ ꜱᴀᴠᴇᴅ ᴍᴇꜱꜱᴀɢᴇ, ɪᴛ ᴡɪʟʟ ʙᴇ ᴅᴇʟᴇᴛᴇᴅ ɪɴ {minsec}**",
             )
             await asyncio.sleep(delay_dur)
             await disc.delete()
