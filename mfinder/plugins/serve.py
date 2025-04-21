@@ -265,26 +265,8 @@ async def get_files(bot, query):
     user_id = query.from_user.id
     force_sub = await get_channel()
     if force_sub:
-        try:
-            if not await is_subscribed(bot, query):
-                link = await bot.create_chat_invite_link(int(force_sub), creates_join_request=True)
-                await bot.send_message(
-                    chat_id=query.from_user.id,
-                    text="**Pʟᴇᴀꜱᴇ ᴊᴏɪɴ ᴏᴜʀ ᴜᴩᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ ᴜꜱɪɴɢ ʙᴏᴛ !** 😶‍🌫️",
-                    reply_markup=InlineKeyboardMarkup(
-                        [[InlineKeyboardButton("❃ Jᴏɪɴ Uᴩᴅᴀᴛᴇꜱ Cʜᴀɴɴᴇʟ ❃", url=link.invite_link)]]
-                    ),
-                    parse_mode=enums.ParseMode.MARKDOWN,
-         
-                )
-                return
-        except Exception as e:
-            LOGGER.warning(e)
-            await bot.send_message(
-                ADMINS,
-                text="Something went wrong, please contact my support group",
-            )
-
+        await query.answer(url=f"https://telegram.me/movies_forage_bot?start={file_id}")
+        return
     if isinstance(query, CallbackQuery):
         file_id = query.data.split()[1]
         await query.answer("Sᴇɴᴅɪɴɢ ꜰɪʟᴇ...", cache_time=60)
