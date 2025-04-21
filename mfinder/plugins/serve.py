@@ -307,6 +307,15 @@ async def get_files(bot, query):
             f_caption = f_caption + "\n" + admin_settings.caption_uname
 
         try:
+            if query.message.chat.type != enums.ChatType.PRIVATE:
+                msg = await bot.send_cached_media(
+                    chat_id=query.from_user.id,
+                    file_id=file_id,
+                    caption=f_caption,
+                    parse_mode=ParseMode.MARKDOWN,
+                )
+                await query.answer("Fɪʟᴇ ʜᴀꜱ ʙᴇᴇɴ ꜰᴏʀᴡᴀʀᴅᴇᴅ!.. Cʜᴇᴄᴋ PM 🗜️", show_alert=True)
+            else:
             if cbq:
                 msg = await bot.send_cached_media(
                     chat_id=query.from_user.id,
@@ -315,14 +324,13 @@ async def get_files(bot, query):
                     parse_mode=ParseMode.MARKDOWN,
                 )
             else:
-                msg = await bot.send_cached_media(
+                msg = await query.reply_cached_media(
                     chat_id=query.from_user.id,
                     file_id=file_id,
                     caption=f_caption,
                     parse_mode=ParseMode.MARKDOWN,
+                    quote=True,
                 )
-            if query.message.chat.type != enums.ChatType.PRIVATE:
-            await query.answer("Fɪʟᴇ ʜᴀꜱ ʙᴇᴇɴ ꜰᴏʀᴡᴀʀᴅᴇᴅ!.. Cʜᴇᴄᴋ PM 🗜️", show_alert=True)
         except UserIsBlocked:
             await query.answer('Uɴʙʟᴏᴄᴋ ᴛʜᴇ ʙᴏᴛ ᴍᴀʜɴ !', show_alert=True)
         except PeerIdInvalid:
