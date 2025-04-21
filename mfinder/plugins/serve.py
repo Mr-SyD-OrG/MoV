@@ -308,19 +308,20 @@ async def get_files(bot, query):
 
         try:
             if cbq:
-                msg = await query.message.reply_cached_media(
+                msg = await bot.send_cached_media(
+                    chat_id=query.from_user.id,
                     file_id=file_id,
                     caption=f_caption,
                     parse_mode=ParseMode.MARKDOWN,
-                    quote=True,
                 )
             else:
-                msg = await query.reply_cached_media(
+                msg = await bot.send_cached_media(
+                    chat_id=query.from_user.id,
                     file_id=file_id,
                     caption=f_caption,
                     parse_mode=ParseMode.MARKDOWN,
-                    quote=True,
                 )
+
         except UserIsBlocked:
             await query.answer('Uɴʙʟᴏᴄᴋ ᴛʜᴇ ʙᴏᴛ ᴍᴀʜɴ !', show_alert=True)
         except PeerIdInvalid:
@@ -341,7 +342,7 @@ async def get_files(bot, query):
             await asyncio.sleep(delay_dur)
             await disc.delete()
             await msg.delete()
-            await bot.send_message(user_id, "❕ Fɪʟᴇ ʜᴀꜱ ʙᴇᴇɴ ᴅᴇʟᴇᴛᴇᴅ ❕ [ᴩʟᴇᴀꜱᴇ ꜱᴇᴀʀᴄʜ ᴀɢᴀɪɴ ꜰᴏʀ ɪᴛ ✨]")
+            await bot.send_message(user_id, "❕ Fɪʟᴇ ʜᴀꜱ ʙᴇᴇɴ ᴅᴇʟᴇᴛᴇᴅ ❕ \n[ᴩʟᴇᴀꜱᴇ ꜱᴇᴀʀᴄʜ ᴀɢᴀɪɴ ꜰᴏʀ ɪᴛ ✨]")
 
 
 def get_size(size):
