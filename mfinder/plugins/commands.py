@@ -57,11 +57,7 @@ async def start(bot, update):
                     return
             except Exception as e:
                 LOGGER.warning(e)
-                await update.reply_text(
-                    text="Something went wrong, please contact my support group",
-                    quote=True,
-                )
-                return
+                await  bot.send_message(ADMINS, text="Fꜱᴜʙ ᴇʀʀᴏʀ. ᴄʜᴇᴄᴋ ʟᴏɢꜱ, ᴩʀᴏʙᴀʙʟʏ ᴀᴅᴅ ᴍᴇ ᴛᴏ ꜰꜱᴜʙ ᴄʜᴀɴɴᴇʟ ᴛᴏ ꜰɪx")
         mrsyd = update.text.split()[1]
         await syd_files(bot, update, mrsyd)
 
