@@ -47,7 +47,7 @@ async def start(bot, update):
                 if not await is_subscribed(bot, update):
                     link = await bot.create_chat_invite_link(int(force_sub), creates_join_request=True)
                     await update.reply_text(
-                        text="**Pʟᴇᴀꜱᴇ ᴊᴏɪɴ ᴏᴜʀ ᴜᴩᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ ᴜꜱɪɴɢ ʙᴏᴛ !** 😶‍🌫️",
+                        text="**Pʟᴇᴀꜱᴇ ᴊᴏɪɴ ɪɴ ᴏᴜʀ ᴜᴩᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ ᴜꜱɪɴɢ ʙᴏᴛ !** 😶‍🌫️",
                         reply_markup=InlineKeyboardMarkup(
                             [[InlineKeyboardButton("❃ Jᴏɪɴ Uᴩᴅᴀᴛᴇ Cʜᴀɴɴᴇʟ ❃", url=link.invite_link)]]
                         ),
@@ -57,7 +57,7 @@ async def start(bot, update):
                     return
             except Exception as e:
                 LOGGER.warning(e)
-                await  bot.send_message(ADMINS, text="Fꜱᴜʙ ᴇʀʀᴏʀ. ᴄʜᴇᴄᴋ ʟᴏɢꜱ, ᴩʀᴏʙᴀʙʟʏ ᴀᴅᴅ ᴍᴇ ᴛᴏ ꜰꜱᴜʙ ᴄʜᴀɴɴᴇʟ ᴛᴏ ꜰɪx")
+                await bot.send_message(ADMINS, text="Fꜱᴜʙ ᴇʀʀᴏʀ. ᴄʜᴇᴄᴋ ʟᴏɢꜱ, ᴩʀᴏʙᴀʙʟʏ ᴀᴅᴅ ᴍᴇ ᴛᴏ ꜰꜱᴜʙ ᴄʜᴀɴɴᴇʟ ᴛᴏ ꜰɪx")
         mrsyd = update.text.split()[1]
         await syd_files(bot, update, mrsyd)
 
