@@ -50,7 +50,7 @@ async def start(bot, update):
                         text="**Pʟᴇᴀꜱᴇ ᴊᴏɪɴ ɪɴ ᴏᴜʀ ᴜᴩᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ ᴜꜱɪɴɢ ʙᴏᴛ !** 😶‍🌫️",
                         reply_markup=InlineKeyboardMarkup(
                             [[[InlineKeyboardButton("❃ Jᴏɪɴ Uᴩᴅᴀᴛᴇ Cʜᴀɴɴᴇʟ ❃", url=link.invite_link)],
-                              [InlineKeyboardButton("↻ Tʀʏ Aɢᴀɪɴ ↻", url=f"https://t.me/{temp.U_NAME}?start={update.command[1]}")]]]
+                              [InlineKeyboardButton("↻ Tʀʏ Aɢᴀɪɴ ↻", url=f"https://t.me/Movies_forage_Bot?start={update.command[1]}")]]]
                         ),
                         parse_mode=enums.ParseMode.MARKDOWN,
                         quote=True,
