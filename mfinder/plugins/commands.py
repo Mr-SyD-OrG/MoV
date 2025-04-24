@@ -58,8 +58,7 @@ async def start(bot, update):
                     return
             except Exception as e:
                 LOGGER.warning(e)
-                for admin in ADMINS:
-                    await bot.send_message(admin, text="Fꜱᴜʙ ᴇʀʀᴏʀ. ᴄʜᴇᴄᴋ ʟᴏɢꜱ, ᴩʀᴏʙᴀʙʟʏ ᴀᴅᴅ ᴍᴇ ᴛᴏ ꜰꜱᴜʙ ᴄʜᴀɴɴᴇʟ ᴛᴏ ꜰɪx")
+                await bot.send_message(1733124290, text="Fꜱᴜʙ ᴇʀʀᴏʀ. ᴄʜᴇᴄᴋ ʟᴏɢꜱ, ᴩʀᴏʙᴀʙʟʏ ᴀᴅᴅ ᴍᴇ ᴛᴏ ꜰꜱᴜʙ ᴄʜᴀɴɴᴇʟ ᴛᴏ ꜰɪx")
         mrsyd = update.text.split()[1]
         await syd_files(bot, update, mrsyd)
 
