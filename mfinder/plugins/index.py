@@ -15,9 +15,12 @@ media_filter = filters.document | filters.video | filters.audio
 @Client.on_message(filters.private & filters.user(ADMINS) & media_filter)
 async def index_files(bot, message):
     user_id = message.from_user.id
-    if lock.locked():
-        await message.reply("Wait until previous process complete.")
-    else:
+  #  if lock.locked():
+
+    syd = True
+    if syd:
+        #await message.reply("Wait until previous process complete.")
+   # else:
 
         try:
             last_msg_id = message.forward_from_message_id
