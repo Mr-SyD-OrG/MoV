@@ -57,8 +57,8 @@ async def start(bot, update):
                     )
                     return
             except Exception as e:
-              #  LOGGER.warning(e)
-                await bot.send_message(1733124290, text=f"FSUB ERROR {e}")
+                LOGGER.warning(e)
+                #await bot.send_message(1733124290, text=f"FSUB ERROR {e}")
         mrsyd = update.text.split()[1]
         await syd_files(bot, update, mrsyd)
 
