@@ -49,8 +49,10 @@ async def start(bot, update):
                     await update.reply_text(
                         text="**Pʟᴇᴀꜱᴇ ᴊᴏɪɴ ɪɴ ᴏᴜʀ ᴜᴩᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ ᴜꜱɪɴɢ ʙᴏᴛ !** 😶‍🌫️",
                         reply_markup=InlineKeyboardMarkup(
-                            [[[InlineKeyboardButton("❃ Jᴏɪɴ Uᴩᴅᴀᴛᴇ Cʜᴀɴɴᴇʟ ❃", url=link.invite_link)],
-                              [InlineKeyboardButton("↻ Tʀʏ Aɢᴀɪɴ ↻", url=f"https://t.me/Movies_forage_Bot?start={update.command[1]}")]]]
+                            [
+                                [InlineKeyboardButton("❃ Jᴏɪɴ Uᴩᴅᴀᴛᴇ Cʜᴀɴɴᴇʟ ❃", url=link.invite_link)],
+                                [InlineKeyboardButton("↻ Tʀʏ Aɢᴀɪɴ ↻", url=f"https://t.me/Movies_forage_Bot?start={update.command[1]}")]
+                            ]
                         ),
                         parse_mode=enums.ParseMode.MARKDOWN,
                         quote=True,
@@ -58,7 +60,8 @@ async def start(bot, update):
                     return
             except Exception as e:
                 LOGGER.warning(e)
-                #await bot.send_message(1733124290, text=f"FSUB ERROR {e}")
+                # await bot.send_message(1733124290, text=f"FSUB ERROR {e}")
+
         mrsyd = update.text.split()[1]
         await syd_files(bot, update, mrsyd)
 
