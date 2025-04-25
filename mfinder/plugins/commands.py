@@ -16,14 +16,14 @@ from .serve import is_subscribed
 
 @Client.on_message(filters.command(["start"]))
 async def start(bot, update):
-    if len(update.command) == 1:
-        user_id = update.from_user.id
-        name = update.from_user.first_name if update.from_user.first_name else " "
-        user_name = (
-            "@" + update.from_user.username if update.from_user.username else None
-        )
-        await add_user(user_id, user_name)
+    user_id = update.from_user.id
+    name = update.from_user.first_name if update.from_user.first_name else " "
+    user_name = (
+        "@" + update.from_user.username if update.from_user.username else None
+    )
+    await add_user(user_id, user_name)
 
+    if len(update.command) == 1:
         try:
             start_msg = START_MSG.format(name, user_id)
         except Exception as e:
