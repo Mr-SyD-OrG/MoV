@@ -318,7 +318,7 @@ async def get_files(bot, query):
     if force_sub:
         await query.answer(url=f"https://telegram.me/movies_forage_bot?start={file_id}")
         return
-    await query.answer("Sᴇɴᴅɪɴɢ ꜰɪʟᴇ...", cache_time=60)
+ #   await query.answer("Sᴇɴᴅɪɴɢ ꜰɪʟᴇ...", cache_time=60)
     filedetails = await get_file_details(file_id)
     admin_settings = await get_admin_settings()
     for files in filedetails:
