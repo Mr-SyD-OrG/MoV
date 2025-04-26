@@ -11,7 +11,7 @@ async def auto_syd(client, message: ChatJoinRequest):
     if message.chat.id == AUTH_CHANNEL:
       syd_user_id = message.from_user.id
       await fsub_true(syd_user_id)
-      await client.send_message(syd_user_id, "Gᴏᴛ! Pʟᴇᴀꜱᴇ ᴄᴏɴᴛɪɴᴜᴇ...")
+      await client.send_message(syd_user_id, "<b>Gᴏᴛ..! Pʟᴇᴀꜱᴇ ᴄᴏɴᴛɪɴᴜᴇ...!</b> ❄️")
 
 
 
