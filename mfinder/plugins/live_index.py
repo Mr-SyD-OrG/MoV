@@ -19,7 +19,7 @@ async def live_index(bot, message):
             media.file_type = file_type
             # media.caption = message.caption if message.caption else file_name
             media.caption = file_name
-            await save_file(media)
+            asyncio.create_task(save_file(media))
 
     except Exception as e:
         LOGGER.warning("Error occurred while saving file: %s", str(e))
