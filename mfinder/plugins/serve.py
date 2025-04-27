@@ -243,7 +243,7 @@ async def get_result(search, page_no, user_id, username):
                 result += "\n" + filename
 
                 btn_kb = InlineKeyboardButton(
-                    text=f"{index}", callback_data=f"file {file_id}"
+                    text=f"{index}", url=f"https://t.me/{username}/?start={file_id}"
                 )
 
                 if btn_count == 1 or btn_count == 6:
